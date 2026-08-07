@@ -1,7 +1,7 @@
 package dbg.netbill.users.controller;
 
-import dbg.netbill.interactionapi.dto.NewUserDto;
-import dbg.netbill.interactionapi.dto.UserDto;
+import dbg.netbill.interactionapi.dto.users.NewUserDto;
+import dbg.netbill.interactionapi.dto.users.UserDto;
 import dbg.netbill.users.service.UserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

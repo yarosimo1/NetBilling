@@ -1,4 +1,4 @@
-package dbg.netbill.interactionapi.dto;
+package dbg.netbill.interactionapi.dto.users;
 
 import dbg.netbill.users.model.UserRole;
 import lombok.Data;

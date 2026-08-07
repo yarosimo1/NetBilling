@@ -1,6 +1,8 @@
 package dbg.netbill.users.controller;
 
 import dbg.netbill.users.service.UserService;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
@@ -17,7 +19,7 @@ public class AdminUserController {
 
     @DeleteMapping("/{userId}}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteUser(@PathVariable Long userId) {
+    public void deleteUser(@PathVariable @NotNull @Positive Long userId) {
         userService.delete(userId);
     }
 }

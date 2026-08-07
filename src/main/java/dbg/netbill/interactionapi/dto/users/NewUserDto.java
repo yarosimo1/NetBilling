@@ -1,4 +1,4 @@
-package dbg.netbill.interactionapi.dto;
+package dbg.netbill.interactionapi.dto.users;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;

@@ -1,7 +1,7 @@
 package dbg.netbill.users.service;
 
-import dbg.netbill.interactionapi.dto.NewUserDto;
-import dbg.netbill.interactionapi.dto.UserDto;
+import dbg.netbill.interactionapi.dto.users.NewUserDto;
+import dbg.netbill.interactionapi.dto.users.UserDto;
 import dbg.netbill.interactionapi.exception.ConflictException;
 import dbg.netbill.interactionapi.exception.NotFoundException;
 import dbg.netbill.time.TimeProvider;

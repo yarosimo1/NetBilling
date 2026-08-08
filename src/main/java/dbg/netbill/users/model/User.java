@@ -1,11 +1,13 @@
 package dbg.netbill.users.model;
 
+import dbg.netbill.contracts.model.Contract;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -29,6 +31,9 @@ public class User {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private UserRole role;
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    List<Contract> contract;
 
     @Column(nullable = false)
     private LocalDateTime createdAt;

@@ -8,15 +8,12 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PatchMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @Validated
-@RestController("api/admin/contract")
+@RestController("api/admin/contracts")
 @RequiredArgsConstructor
 public class AdminContractController {
     private final ContractService contractService;
@@ -26,27 +23,21 @@ public class AdminContractController {
         return contractService.getContactByContractNumber(contactNumber);
     }
 
-    @GetMapping("/user/{userId}")
-    public List<ContractDto> getContractByUserId(@PathVariable @NotNull @Positive Long userId) {
-        return contractService.getContracts(userId);
-    }
-
     @GetMapping
     public List<ContractDto> getContracts() {
         return contractService.getContracts();
     }
 
-    @PatchMapping("/{contractNumber}")
-    public ContractDto updateContractByContractNumber(@PathVariable @NotNull @Positive Long contractNumber,
+    @PatchMapping("/{contractNumber}/user/{userId}")
+    public ContractDto updateContractByContractNumber(@PathVariable @NotNull @Positive Long userId,
+                                                      @PathVariable @NotNull @Positive Long contractNumber,
                                                       @Valid NewContractDto newContractDto
     ) {
-        return contractService.updateContractByContractNumber(contractNumber, newContractDto);
+        return contractService.updateContract(userId, contractNumber, newContractDto);
     }
 
-    @PatchMapping("/user/{userId}")
-    public ContractDto updateContractByUserId(@PathVariable @NotNull @Positive Long userId,
-                                                      @Valid NewContractDto newContractDto
-    ) {
-        return contractService.updateContractByUserId(userId, newContractDto);
+    @PostMapping
+    public ContractDto createContract(@Valid NewContractDto newContractDto) {
+        return contractService.createContract(newContractDto);
     }
 }

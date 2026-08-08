@@ -1,4 +1,4 @@
-package users;
+package dbg.netbill.users;
 
 import dbg.netbill.interactionapi.dto.users.NewUserDto;
 import dbg.netbill.interactionapi.dto.users.UserDto;

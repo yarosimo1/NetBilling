@@ -19,7 +19,7 @@ public class ContractController {
     private final ContractService contractService;
 
     @GetMapping
-    public List<ContractDto> getContracts(@PathVariable @NotNull  @Positive Long userId) {
-        return contractService.getContracts(userId);
+    public List<ContractDto> getContractsByUserId(@PathVariable @NotNull  @Positive Long userId) {
+        return contractService.getContractsByUserId(userId);
     }
 }

@@ -19,17 +19,17 @@ public class Contract {
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
 
-    @Column(nullable = false, length = 10, unique = true)
+    @Column(nullable = false, unique = true)
     private Long number;
 
     @Column(nullable = false)
-    private LocalDateTime createAt;
+    private LocalDateTime createdAt;
 
-    private LocalDateTime updateAt;
-    private LocalDateTime closeAt;
+    private LocalDateTime updatedAt;
+    private LocalDateTime closedAt;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
